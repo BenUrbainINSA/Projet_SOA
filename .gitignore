@@ -1,0 +1,60 @@
+########################
+# Logs & fichiers temporaires
+########################
+logs/
+*.log
+*.log.*
+*.tmp
+*.swp
+*.swo
+
+########################
+# Build Java / Maven
+########################
+target/
+**/target/
+
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+
+# Maven wrapper : on garde seulement le jar
+.mvn/wrapper/*
+!.mvn/wrapper/maven-wrapper.jar
+
+########################
+# Archives générées
+########################
+*.jar
+*.war
+*.ear
+
+########################
+# Eclipse / Spring Tool Suite
+########################
+.project
+.classpath
+.settings/
+.bin/
+bin/
+.springBeans
+
+########################
+# Config locale / secrets
+########################
+*.env
+*.env.*
+!.env.example
+
+application-*.local.properties
+application-*.local.yml
+application-*.local.yaml
+
+########################
+# Tests & couverture
+########################
+*.exec
+*.ec
+jacoco.exec
+coverage/
