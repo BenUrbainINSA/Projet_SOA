@@ -1,0 +1,7 @@
+INDEX VERSION 1.134+/home/mansilha/5ISS/projetSOA/.metadata/.plugins/org.eclipse.jdt.core
+4194948172.index
+1865797976.index
+3270127121.index
+2237948320.index
+2502504974.index
+4185314712.index

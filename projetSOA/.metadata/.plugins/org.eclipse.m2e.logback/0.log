@@ -1,0 +1,67 @@
+2025-11-26 14:58:51,966 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-11-26 15:07:46,012 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-11-26 15:08:00,623 [Worker-28: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: projet.soa.fr:Actuator_MS:0.0.1-SNAPSHOT @ /home/mansilha/5ISS/projetSOA/Actuator_MS/pom.xml.
+2025-11-26 15:08:02,153 [Worker-28: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Actuator_MS/src/main/java
+2025-11-26 15:08:02,155 [Worker-28: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Actuator_MS/src/main/resources
+2025-11-26 15:08:02,155 [Worker-28: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Actuator_MS/src/main/resources
+2025-11-26 15:08:02,156 [Worker-28: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Actuator_MS/src/test/java
+2025-11-26 15:08:02,156 [Worker-28: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Actuator_MS/src/test/resources
+2025-11-26 15:08:02,346 [Worker-28: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 4 sec
+2025-11-26 15:08:03,250 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:08:03,267 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:08:03,271 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/Actuator_MS/src/test/resources
+2025-11-26 15:08:12,778 [Worker-7: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: projet.soa.fr:History_MS:0.0.1-SNAPSHOT @ /home/mansilha/5ISS/projetSOA/History_MS/pom.xml.
+2025-11-26 15:08:14,211 [Worker-7: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /History_MS/src/main/java
+2025-11-26 15:08:14,211 [Worker-7: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /History_MS/src/main/resources
+2025-11-26 15:08:14,211 [Worker-7: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /History_MS/src/main/resources
+2025-11-26 15:08:14,211 [Worker-7: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /History_MS/src/test/java
+2025-11-26 15:08:14,211 [Worker-7: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /History_MS/src/test/resources
+2025-11-26 15:08:14,334 [Worker-7: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 2 sec
+2025-11-26 15:08:15,275 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:08:15,290 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:08:15,293 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/History_MS/src/test/resources
+2025-11-26 15:08:24,727 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: projet.soa.fr:Outdoor_Sensor_MS:0.0.1-SNAPSHOT @ /home/mansilha/5ISS/projetSOA/Outdoor_Sensor_MS/pom.xml.
+2025-11-26 15:08:26,077 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Outdoor_Sensor_MS/src/main/java
+2025-11-26 15:08:26,077 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Outdoor_Sensor_MS/src/main/resources
+2025-11-26 15:08:26,077 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Outdoor_Sensor_MS/src/main/resources
+2025-11-26 15:08:26,077 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Outdoor_Sensor_MS/src/test/java
+2025-11-26 15:08:26,077 [Worker-32: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Outdoor_Sensor_MS/src/test/resources
+2025-11-26 15:08:26,171 [Worker-32: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 3 sec
+2025-11-26 15:08:26,891 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:08:26,910 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:08:26,913 [Worker-23: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/Outdoor_Sensor_MS/src/test/resources
+2025-11-26 15:08:32,687 [Worker-33: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: projet.soa.fr:Indoor_Sensor_MS:0.0.1-SNAPSHOT @ /home/mansilha/5ISS/projetSOA/Indoor_Sensor_MS/pom.xml.
+2025-11-26 15:08:35,036 [Worker-33: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Indoor_Sensor_MS/src/main/java
+2025-11-26 15:08:35,036 [Worker-33: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Indoor_Sensor_MS/src/main/resources
+2025-11-26 15:08:35,036 [Worker-33: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Indoor_Sensor_MS/src/main/resources
+2025-11-26 15:08:35,036 [Worker-33: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Indoor_Sensor_MS/src/test/java
+2025-11-26 15:08:35,036 [Worker-33: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Indoor_Sensor_MS/src/test/resources
+2025-11-26 15:08:35,223 [Worker-33: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 3 sec
+2025-11-26 15:08:36,041 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:08:36,052 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:08:36,054 [Worker-22: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/Indoor_Sensor_MS/src/test/resources
+2025-11-26 15:10:03,023 [Worker-17: Importing Maven projects] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: projet.soa.fr:Rules_MS:0.0.1-SNAPSHOT @ /home/mansilha/5ISS/projetSOA/Rules_MS/pom.xml.
+2025-11-26 15:10:04,565 [Worker-17: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Rules_MS/src/main/java
+2025-11-26 15:10:04,565 [Worker-17: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Rules_MS/src/main/resources
+2025-11-26 15:10:04,581 [Worker-17: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Rules_MS/src/main/resources
+2025-11-26 15:10:04,593 [Worker-17: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Rules_MS/src/test/java
+2025-11-26 15:10:04,594 [Worker-17: Importing Maven projects] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding resource folder /Rules_MS/src/test/resources
+2025-11-26 15:10:04,782 [Worker-17: Importing Maven projects] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 3 sec
+2025-11-26 15:10:05,322 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:10:05,334 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:10:05,337 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/Rules_MS/src/test/resources
+2025-11-26 15:11:42,307 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:11:42,325 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:11:42,329 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/Actuator_MS/src/test/resources
+2025-11-26 15:11:44,780 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:11:44,786 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:11:44,788 [Worker-18: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/History_MS/src/test/resources
+2025-11-26 15:11:46,059 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:11:46,065 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:11:46,067 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/Indoor_Sensor_MS/src/test/resources
+2025-11-26 15:11:46,103 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:11:46,111 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:11:46,113 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/Outdoor_Sensor_MS/src/test/resources
+2025-11-26 15:11:47,207 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2025-11-26 15:11:47,214 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2025-11-26 15:11:47,216 [Worker-17: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/mansilha/5ISS/projetSOA/Rules_MS/src/test/resources
