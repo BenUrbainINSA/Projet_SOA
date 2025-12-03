@@ -40,6 +40,26 @@
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>projet.soa.fr</groupId>
+			<artifactId>Indoor_Sensor_MS</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>projet.soa.fr</groupId>
+			<artifactId>Outdoor_Sensor_MS</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>projet.soa.fr</groupId>
+			<artifactId>Actuator_MS</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>projet.soa.fr</groupId>
+			<artifactId>History_MS</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -1,4 +1,4 @@
-package projet.soa.fr.Indoor_Sensor_MS;
+package projet.soa.fr.Outdoor_Sensor_MS;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/IndoorSensorRessource")
-public class Indoor_Sensor_Ressource {
+public class Outdoor_Sensor_Ressource {
 	
 	//LISTE DES INDOOR SENSORS
-	private static List<Indoor_Sensor> sensors = new ArrayList<>();
+	private static List<Outdoor_Sensor> sensors = new ArrayList<>();
 	
 	//GET ALL SENSORS
 	@GetMapping
-    public List<Indoor_Sensor> getAllSensors() {
+    public List<Outdoor_Sensor> getAllSensors() {
         return sensors;
     }
     
     //GET SENSOR BY ID
     @GetMapping("/Sensor/{id}")
-    public ResponseEntity<Indoor_Sensor> getSensorBySensorId(@PathVariable int id) {
+    public ResponseEntity<Outdoor_Sensor> getSensorBySensorId(@PathVariable int id) {
         return sensors.stream()
                 .filter(c -> c.getSensorId() == id)
                 .findFirst()
@@ -41,8 +41,8 @@ public class Indoor_Sensor_Ressource {
     @GetMapping("/Room/{id}")
     public ResponseEntity<?> getSensorByRoomId(@PathVariable int id) {
         
-        List<Indoor_Sensor> result = sensors.stream()
-                .filter(d -> d.getRoomId() == id)
+        List<Outdoor_Sensor> result = sensors.stream()
+                .filter(d -> d.getNearRoomId() == id)
                 .toList();
 
         if (result.isEmpty()) {
@@ -55,7 +55,7 @@ public class Indoor_Sensor_Ressource {
     
     //GET SENSOR BY NAME
     @GetMapping("/Name/{name}")
-    public ResponseEntity<Indoor_Sensor> getSensorByNameId(@PathVariable String name) {
+    public ResponseEntity<Outdoor_Sensor> getSensorByNameId(@PathVariable String name) {
         return sensors.stream()
         		.filter(c -> c.getName().equals(name))
                 .findFirst()
@@ -67,7 +67,7 @@ public class Indoor_Sensor_Ressource {
     @GetMapping("/Room/{id}/Temperature")
     public ResponseEntity<String> getTemperatureByRoomId(@PathVariable int id) {
         return sensors.stream()
-                .filter(c -> c.getRoomId() == id)
+                .filter(c -> c.getNearRoomId() == id)
                 .findFirst()
                 .map(sensor -> ResponseEntity.ok(sensor.getMeasurement() + "°C"))
                 .orElse(ResponseEntity
@@ -78,7 +78,7 @@ public class Indoor_Sensor_Ressource {
     
     //POST NEW SENSOR
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Indoor_Sensor> createCommande(@RequestBody Indoor_Sensor sensor) {
+    public ResponseEntity<Outdoor_Sensor> createCommande(@RequestBody Outdoor_Sensor sensor) {
         int nextId = sensors.size() + 1;
         sensor.setSensorId(nextId);
 
@@ -88,13 +88,13 @@ public class Indoor_Sensor_Ressource {
     
     //UPDATE SENSOR BY ID
     @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Indoor_Sensor> updateSensor(@PathVariable int id, @RequestBody Indoor_Sensor updatedSensor) {
+    public ResponseEntity<Outdoor_Sensor> updateCommande(@PathVariable int id, @RequestBody Outdoor_Sensor updatedSensor) {
         for (int i = 0; i < sensors.size(); i++) {
             if (sensors.get(i).getSensorId() == id) {
 
-                Indoor_Sensor c = sensors.get(i);
+                Outdoor_Sensor c = sensors.get(i);
                 c.setSensorId(updatedSensor.getSensorId());
-                c.setRoomId(updatedSensor.getRoomId());
+                c.setNearRoomId(updatedSensor.getNearRoomId());
                 c.setMeasurement(updatedSensor.getMeasurement());
                 c.setName(updatedSensor.getName());
                 c.setEnabled(updatedSensor.getEnabled());
