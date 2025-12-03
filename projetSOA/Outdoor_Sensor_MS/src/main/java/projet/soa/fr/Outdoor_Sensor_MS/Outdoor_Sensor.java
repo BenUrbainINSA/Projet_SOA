@@ -1,0 +1,61 @@
+package projet.soa.fr.Outdoor_Sensor_MS;
+
+public class Outdoor_Sensor {
+
+    private Integer sensorId;   // identifiant unique du capteur
+    private Integer nearRoomId;     // identifiant de la salle associée
+    private Integer measurement; // valeur de température en °C
+    private String name;       // nom lisible du capteur
+    private Boolean enabled;   // capteur actif ou non
+    
+    public Outdoor_Sensor() {
+    }
+
+    public Outdoor_Sensor(Integer nearRoomId, Integer measurement, String name, Boolean enabled) {
+        this.nearRoomId = nearRoomId;
+        this.measurement = measurement;
+        this.name = name;
+        this.enabled = enabled;
+    }
+
+    public Integer getSensorId() {
+        return sensorId;
+    }
+
+    public void setSensorId(Integer sensorId) {
+        this.sensorId = sensorId;
+    }
+
+    public Integer getNearRoomId() {
+        return nearRoomId;
+    }
+
+    public void setNearRoomId(Integer nearRoomId) {
+        this.nearRoomId = nearRoomId;
+    }
+
+    public Integer getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(Integer measurement) {
+        this.measurement = measurement;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+	
+}

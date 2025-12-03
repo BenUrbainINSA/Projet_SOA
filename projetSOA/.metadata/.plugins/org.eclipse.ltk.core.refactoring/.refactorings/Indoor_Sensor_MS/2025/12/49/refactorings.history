@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Indoor_Sensor.java&apos; to &apos;projet.soa.fr.Outdoor_Sensor_MS.OutdoorSensorMsApplication.java&apos;&#x0A;- Original project: &apos;Indoor_Sensor_MS&apos;&#x0A;- Destination element: &apos;projet.soa.fr.Outdoor_Sensor_MS.OutdoorSensorMsApplication.java&apos;&#x0A;- Original element: &apos;projet.soa.fr.Indoor_Sensor_MS.Indoor_Sensor.java&apos;" description="Copy compilation unit" destination="=Outdoor_Sensor_MS/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;projet.soa.fr.Outdoor_Sensor_MS{OutdoorSensorMsApplication.java" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;projet.soa.fr.Indoor_Sensor_MS{Indoor_Sensor.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1764767941807" units="1" version="1.0"/>
+</session>

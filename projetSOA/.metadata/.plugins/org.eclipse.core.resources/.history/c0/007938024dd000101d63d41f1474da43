@@ -1,0 +1,10 @@
+package projet.soa.fr.Indoor_Sensor_MS;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/IndoorSensorRessource")
+public class Indoor_Sensor_Ressource {
+
+}

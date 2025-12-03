@@ -1,0 +1,61 @@
+package projet.soa.fr.Indoor_Sensor_MS;
+
+public class Indoor_Sensor {
+
+    private Integer sensorId;   // identifiant unique du capteur
+    private Integer roomId;     // identifiant de la salle associée
+    private Integer measurement; // valeur de température en °C
+    private String name;       // nom lisible du capteur
+    private Boolean enabled;   // capteur actif ou non
+
+    public Indoor_Sensor() {
+    }
+
+    public Indoor_Sensor(Integer roomId, Integer measurement, String name, Boolean enabled) {
+        this.roomId = roomId;
+        this.measurement = measurement;
+        this.name = name;
+        this.enabled = enabled;
+    }
+
+    public Integer getSensorId() {
+        return sensorId;
+    }
+
+    public void setSensorId(Integer sensorId) {
+        this.sensorId = sensorId;
+    }
+
+    public Integer getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
+
+    public Integer getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(Integer measurement) {
+        this.measurement = measurement;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+	
+}

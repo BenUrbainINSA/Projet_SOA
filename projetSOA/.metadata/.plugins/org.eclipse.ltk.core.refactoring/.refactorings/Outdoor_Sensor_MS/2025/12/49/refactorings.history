@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;projet.soa.fr.Outdoor_Sensor_MS.Indoor_Sensor&apos; to &apos;Outdoor_Sensor&apos;&#x0A;- Original project: &apos;Outdoor_Sensor_MS&apos;&#x0A;- Original element: &apos;projet.soa.fr.Outdoor_Sensor_MS.Indoor_Sensor&apos;&#x0A;- Renamed element: &apos;projet.soa.fr.Outdoor_Sensor_MS.Outdoor_Sensor&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Indoor_Sensor&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;projet.soa.fr.Outdoor_Sensor_MS{Indoor_Sensor.java[Indoor_Sensor" matchStrategy="1" name="Outdoor_Sensor" qualified="false" references="true" similarDeclarations="false" stamp="1764768036308" textual="false" version="1.0"/>
+</session>
