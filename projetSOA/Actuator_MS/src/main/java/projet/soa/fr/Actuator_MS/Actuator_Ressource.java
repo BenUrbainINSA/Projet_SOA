@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,78 +35,60 @@ public class Actuator_Ressource {
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
     
+    //GET Actuator BY ROOM
+    @GetMapping("/Room/{id}")
+    public ResponseEntity<?> getRoomId(@PathVariable int id) {
+        
+        List<Actuator> result = Actuator.stream()
+                .filter(d -> d.getRoomId() == id)
+                .toList();
+
+        if (result.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Aucun capteur trouvé pour la roomId : " + id);
+        }
+
+        return ResponseEntity.ok(result);
+    }
+    
+    //GET Actuator BY NAME
+    @GetMapping("/Name/{name}")
+    public ResponseEntity<Actuator> getSensorByNameId(@PathVariable String name) {
+        return Actuator.stream()
+                .filter(c -> c.getName().equals(name))
+                .findFirst()
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+    
+    //POST NEW ACTUATOR 
     @PostMapping(consumes = "application/json", produces = "application/json")
     public ResponseEntity<Actuator> createCommande(@RequestBody Actuator actuator) {
-        int nextId = Actuator.size() + 1;
+        int nextId = Actuator.size() + 1; //incrémente automatiquement 
         actuator.setActuatorId(nextId);
-
+x
         Actuator.add(actuator);
         return ResponseEntity.status(HttpStatus.CREATED).body(actuator);
     }
+    
+    //UPDATE SENSOR BY ID
+    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Actuator> updateCommande(@PathVariable int id, @RequestBody Actuator updatedSensor) {
+        for (int i = 0; i < Actuator.size(); i++) {
+            if (Actuator.get(i).getActuatorId() == id) {
 
-//    //GET Actuator BY ROOM
-//    @GetMapping("/Room/{id}")
-//    public ResponseEntity<Actuator> getRoomId(@PathVariable int id) {
-//        return Actuator.stream()
-//                .filter(c -> c.getRoomId() == id)
-//                .findFirst()
-//                .map(ResponseEntity::ok)
-//                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-//    }
-	
-//----------------------------------------------------------------
+            	Actuator c = Actuator.get(i);
+                c.setActuatorId(updatedSensor.getActuatorId());
+                c.setRoomId(updatedSensor.getRoomId());
+                c.setState(updatedSensor.getState());
+                c.setName(updatedSensor.getName());
+                c.setEnabled(updatedSensor.getEnabled());
 
-//	@RestController
-//	@RequestMapping("/IndoorSensorRessource")
-//	public class Indoor_Sensor_Ressource {
-//		
-//		
-//		
-//	    //GET SENSOR BY ROOM
-//	    @GetMapping("/Room/{id}")
-//	    public ResponseEntity<Indoor_Sensor> getSensorByRoomId(@PathVariable int id) {
-//	        return sensors.stream()
-//	                .filter(c -> c.getRoomId() == id)
-//	                .findFirst()
-//	                .map(ResponseEntity::ok)
-//	                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-//	    }
-//	    
-//	    //GET SENSOR BY NAME
-//	    @GetMapping("/Name/{name}")
-//	    public ResponseEntity<Indoor_Sensor> getSensorByNameId(@PathVariable String name) {
-//	        return sensors.stream()
-//	                .filter(c -> c.getName() == name)
-//	                .findFirst()
-//	                .map(ResponseEntity::ok)
-//	                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
-//	    }
-//	    
-//	    //POST NEW SENSOR
-//	    @PostMapping(consumes = "application/json", produces = "application/json")
-//	    public ResponseEntity<Indoor_Sensor> createCommande(@RequestBody Indoor_Sensor sensor) {
-//	        sensors.add(sensor);
-//	        return ResponseEntity.status(HttpStatus.CREATED).body(sensor);
-//	    }
-//	    
-//	    //UPDATE SENSOR BY ID
-//	    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
-//	    public ResponseEntity<Indoor_Sensor> updateCommande(@PathVariable int id, @RequestBody Indoor_Sensor updatedSensor) {
-//	        for (int i = 0; i < sensors.size(); i++) {
-//	            if (sensors.get(i).getSensorId() == id) {
-//
-//	                Indoor_Sensor c = sensors.get(i);
-//	                c.setSensorId(updatedSensor.getSensorId());
-//	                c.setRoomId(updatedSensor.getRoomId());
-//	                c.setMeasurement(updatedSensor.getMeasurement());
-//	                c.setName(updatedSensor.getName());
-//	                c.setEnabled(updatedSensor.getEnabled());
-//
-//	                return ResponseEntity.ok(c);
-//	            }
-//	        }
-//	        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-//	    }
-//
-//	}
+                return ResponseEntity.ok(c);
+            }
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+
+    
 }
