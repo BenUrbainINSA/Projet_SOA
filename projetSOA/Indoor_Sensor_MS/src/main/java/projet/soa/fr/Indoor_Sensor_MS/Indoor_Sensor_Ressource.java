@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,23 +39,42 @@ public class Indoor_Sensor_Ressource {
 	
     //GET SENSOR BY ROOM
     @GetMapping("/Room/{id}")
-    public ResponseEntity<Indoor_Sensor> getSensorByRoomId(@PathVariable int id) {
-        return sensors.stream()
-                .filter(c -> c.getRoomId() == id)
-                .findFirst()
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    public ResponseEntity<?> getSensorByRoomId(@PathVariable int id) {
+        
+        List<Indoor_Sensor> result = sensors.stream()
+                .filter(d -> d.getRoomId() == id)
+                .toList();
+
+        if (result.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Aucun capteur trouvé pour la roomId : " + id);
+        }
+
+        return ResponseEntity.ok(result);
     }
     
     //GET SENSOR BY NAME
     @GetMapping("/Name/{name}")
     public ResponseEntity<Indoor_Sensor> getSensorByNameId(@PathVariable String name) {
         return sensors.stream()
-                .filter(c -> c.getName() == name)
+        		.filter(c -> c.getName().equals(name))
                 .findFirst()
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
+    
+    //GET TEMPERATURE BY ROOM ID
+    @GetMapping("/Room/{id}/Temperature")
+    public ResponseEntity<String> getTemperatureByRoomId(@PathVariable int id) {
+        return sensors.stream()
+                .filter(c -> c.getRoomId() == id)
+                .findFirst()
+                .map(sensor -> ResponseEntity.ok(sensor.getMeasurement() + "°C"))
+                .orElse(ResponseEntity
+                        .status(HttpStatus.NOT_FOUND)
+                        .body("Aucun capteur trouvé pour la salle " + id));
+    }
+
     
     //POST NEW SENSOR
     @PostMapping(consumes = "application/json", produces = "application/json")
@@ -80,6 +100,22 @@ public class Indoor_Sensor_Ressource {
             }
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+    
+    //DELETE SENSOR BY ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteSensor(@PathVariable int id) {
+        boolean removed = sensors.removeIf(c -> c.getSensorId() == id);
+
+        if (removed) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body("Suppression réussie pour le capteur avec l'id " + id);
+        } else {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body("Échec de la suppression : aucun capteur trouvé avec l'id " + id);
+        }
     }
 
 }

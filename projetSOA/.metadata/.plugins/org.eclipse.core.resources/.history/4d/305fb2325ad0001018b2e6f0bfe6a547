@@ -1,0 +1,122 @@
+package projet.soa.fr.Indoor_Sensor_MS;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/IndoorSensorRessource")
+public class Indoor_Sensor_Ressource {
+	
+	//LISTE DES INDOOR SENSORS
+	private static List<Indoor_Sensor> sensors = new ArrayList<>();
+	
+	//GET ALL SENSORS
+	@GetMapping
+    public List<Indoor_Sensor> getAllSensors() {
+        return sensors;
+    }
+    
+    //GET SENSOR BY ID
+    @GetMapping("/Sensor/{id}")
+    public ResponseEntity<Indoor_Sensor> getSensorBySensorId(@PathVariable int id) {
+        return sensors.stream()
+                .filter(c -> c.getSensorId() == id)
+                .findFirst()
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+	
+    //GET SENSOR BY ROOM
+    @GetMapping("/Room/{id}")
+    public ResponseEntity<Indoor_Sensor> getSensorByRoomId(@PathVariable int id) {
+        
+	    List<Indoor_Sensor> result = sensors.stream()
+	            .filter(d -> d.getRoomId() == id)
+	            .toList();
+
+	    if (result.isEmpty()) {
+	        return Response.status(Response.Status.NOT_FOUND)
+	                .entity("Aucune demande trouvée pour le demandeur " + id)
+	                .build();
+	    }
+
+	    return Response.ok(result).build();
+	}
+    
+    //GET SENSOR BY NAME
+    @GetMapping("/Name/{name}")
+    public ResponseEntity<Indoor_Sensor> getSensorByNameId(@PathVariable String name) {
+        return sensors.stream()
+        		.filter(c -> c.getName().equals(name))
+                .findFirst()
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+    
+    //GET TEMPERATURE BY ROOM ID
+    @GetMapping("/Room/{id}/Temperature")
+    public ResponseEntity<String> getTemperatureByRoomId(@PathVariable int id) {
+        return sensors.stream()
+                .filter(c -> c.getRoomId() == id)
+                .findFirst()
+                .map(sensor -> ResponseEntity.ok(sensor.getMeasurement() + "°C"))
+                .orElse(ResponseEntity
+                        .status(HttpStatus.NOT_FOUND)
+                        .body("Aucun capteur trouvé pour la salle " + id));
+    }
+
+    
+    //POST NEW SENSOR
+    @PostMapping(consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Indoor_Sensor> createCommande(@RequestBody Indoor_Sensor sensor) {
+        sensors.add(sensor);
+        return ResponseEntity.status(HttpStatus.CREATED).body(sensor);
+    }
+    
+    //UPDATE SENSOR BY ID
+    @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<Indoor_Sensor> updateCommande(@PathVariable int id, @RequestBody Indoor_Sensor updatedSensor) {
+        for (int i = 0; i < sensors.size(); i++) {
+            if (sensors.get(i).getSensorId() == id) {
+
+                Indoor_Sensor c = sensors.get(i);
+                c.setSensorId(updatedSensor.getSensorId());
+                c.setRoomId(updatedSensor.getRoomId());
+                c.setMeasurement(updatedSensor.getMeasurement());
+                c.setName(updatedSensor.getName());
+                c.setEnabled(updatedSensor.getEnabled());
+
+                return ResponseEntity.ok(c);
+            }
+        }
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+    }
+    
+    //DELETE SENSOR BY ID
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteSensor(@PathVariable int id) {
+        boolean removed = sensors.removeIf(c -> c.getSensorId() == id);
+
+        if (removed) {
+            return ResponseEntity
+                    .status(HttpStatus.OK)
+                    .body("Suppression réussie pour le capteur avec l'id " + id);
+        } else {
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body("Échec de la suppression : aucun capteur trouvé avec l'id " + id);
+        }
+    }
+
+}
