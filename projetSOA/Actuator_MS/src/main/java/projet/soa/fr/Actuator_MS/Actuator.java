@@ -10,7 +10,8 @@ public class Actuator {
     
     public Actuator(){}
     
-    public Actuator(Integer roomId, Boolean state, String name, Boolean enabled) {
+    public Actuator(Integer actuatorId, Integer roomId, Boolean state, String name, Boolean enabled) {
+    	this.actuatorId=actuatorId;
         this.roomId = roomId;
         this.state = state;
         this.name = name;
