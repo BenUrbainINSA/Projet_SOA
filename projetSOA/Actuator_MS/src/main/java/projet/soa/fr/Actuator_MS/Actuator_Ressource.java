@@ -72,7 +72,7 @@ public class Actuator_Ressource {
     
     //UPDATE SENSOR BY ID
     @PutMapping(value = "/{id}", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<Actuator> updateCommande(@PathVariable int id, @RequestBody Actuator updatedSensor) {
+    public ResponseEntity<Actuator> updateActuator(@PathVariable int id, @RequestBody Actuator updatedSensor) {
         for (int i = 0; i < Actuator.size(); i++) {
             if (Actuator.get(i).getActuatorId() == id) {
 
