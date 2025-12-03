@@ -66,7 +66,6 @@ public class Actuator_Ressource {
     public ResponseEntity<Actuator> createCommande(@RequestBody Actuator actuator) {
         int nextId = Actuator.size() + 1; //incrémente automatiquement 
         actuator.setActuatorId(nextId);
-x
         Actuator.add(actuator);
         return ResponseEntity.status(HttpStatus.CREATED).body(actuator);
     }
