@@ -1,0 +1,11 @@
+package projet.soa.fr.Rules_MS;
+
+public class Rules {
+	
+    private final String indoorSensorUrl = "http://localhost:8082/IndoorSensorRessource/Room/";
+    private final String outdoorSensorUrl = "http://localhost:8081/OutdoorSensorRessource/Room/";
+    private final String actuatorUrl = "http://localhost:8084/Actuators/Room/";
+    private final String historyUrl = "http://localhost:8083/History";
+	
+
+}

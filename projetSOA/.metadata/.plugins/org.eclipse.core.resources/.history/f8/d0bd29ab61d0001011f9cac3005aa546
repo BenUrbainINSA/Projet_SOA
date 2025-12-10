@@ -1,0 +1,24 @@
+package projet.soa.fr.Rules_MS;
+
+import org.springframework.web.client.RestTemplate;
+import projet.soa.fr.Indoor_Sensor_MS.*;
+import projet.soa.fr.Outdoor_Sensor_MS.*;
+
+public class Rules {
+	
+    private final String indoorSensorUrl = "http://localhost:8082/IndoorSensorRessource/Room/";
+    private final String outdoorSensorUrl = "http://localhost:8081/OutdoorSensorRessource/Room/";
+    private final String actuatorUrl = "http://localhost:8084/Actuators/Room/";
+    private final String historyUrl = "http://localhost:8083/History";
+    
+    public void evaluateByRoomId(int roomId) {
+    	
+    	RestTemplate restTemplate = new RestTemplate();
+    	
+    	Indoor_Sensor Insensor = restTemplate.getForObject(indoorSensorUrl+roomId, Indoor_Sensor.class);
+    	Outdoor_Sensor Outsensor = restTemplate.getForObject(outdoorSensorUrl+roomId, Outdoor_Sensor.class);
+    	
+    }
+	
+
+}

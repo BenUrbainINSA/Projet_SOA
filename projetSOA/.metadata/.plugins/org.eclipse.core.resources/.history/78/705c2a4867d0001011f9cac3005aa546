@@ -1,0 +1,43 @@
+package projet.soa.fr.Rules_MS;
+
+import org.springframework.web.client.RestTemplate;
+import projet.soa.fr.Indoor_Sensor_MS.*;
+import projet.soa.fr.Outdoor_Sensor_MS.*;
+import projet.soa.fr.Actuator_MS.*;
+
+public class Rules {
+	
+    private final String indoorSensorUrl = "http://localhost:8082/IndoorSensorRessource/Room/";
+    private final String outdoorSensorUrl = "http://localhost:8081/OutdoorSensorRessource/Room/";
+    private final String actuatorUrl = "http://localhost:8084/Actuator/";
+    private final String historyUrl = "http://localhost:8083/History";
+    
+    public String evaluateByRoomId(int roomId) {
+    	
+    	RestTemplate restTemplate = new RestTemplate();
+    	
+    	Indoor_Sensor inSensor = restTemplate.getForObject(indoorSensorUrl+roomId, Indoor_Sensor.class);
+    	Outdoor_Sensor outSensor = restTemplate.getForObject(outdoorSensorUrl+roomId, Outdoor_Sensor.class);
+    	Actuator actuator = restTemplate.getForObject(actuatorUrl+"room/"+roomId, Actuator.class);
+    	
+        if (inSensor == null || outSensor == null) {
+            return "Missing sensors for room " + roomId;
+        }
+        
+        int indoorTemp = inSensor.getMeasurement();
+        int outdoorTemp = outSensor.getMeasurement();
+        
+        if (indoorTemp - outdoorTemp > 10) {
+        
+        	if(actuator.state == true) {
+        		//ACTUATOR OUVERT
+        		restTemplate.put(actuatorUrl + actuator.getActuatorId(), actuator);
+        	}
+        	
+        }
+        
+    	
+    }
+	
+
+}
