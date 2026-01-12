@@ -9,5 +9,4 @@ public class IndoorSensorMsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(IndoorSensorMsApplication.class, args);
 	}
-
 }

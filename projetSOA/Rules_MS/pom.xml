@@ -54,7 +54,7 @@
 			<groupId>projet.soa.fr</groupId>
 			<artifactId>Actuator_MS</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>projet.soa.fr</groupId>
 			<artifactId>History_MS</artifactId>
