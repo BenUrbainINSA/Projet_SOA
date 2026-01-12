@@ -1,11 +1,11 @@
 package projet.soa.fr.Rules_MS;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import projet.soa.fr.Indoor_Sensor_MS.*;
 import projet.soa.fr.Outdoor_Sensor_MS.*;
 import projet.soa.fr.Actuator_MS.*;
-import projet.soa.fr.History_MS.*;
 
 @Component
 public class Rules {
@@ -13,24 +13,58 @@ public class Rules {
     private final String indoorSensorUrl = "http://localhost:8082/IndoorSensorRessource/Room/";
     private final String outdoorSensorUrl = "http://localhost:8081/OutdoorSensorRessource/Room/";
     private final String actuatorUrl = "http://localhost:8084/Actuator/";
-    private final String historyUrl = "http://localhost:8083/History/";
+    private final String historyUrl = "http://localhost:8083/History";
 
  
     private final RestTemplate restTemplate = new RestTemplate();
     
     public String evaluateByRoomId(int roomId) {
     	
-    	Indoor_Sensor[] inSensors = restTemplate.getForObject(indoorSensorUrl + roomId, Indoor_Sensor[].class);
-    	Indoor_Sensor inSensor = inSensors[0];
+        Indoor_Sensor inSensor;
+        Outdoor_Sensor outSensor;
+        Actuator actuator;
+        
+        //INDOOR
+    	try {
+            Indoor_Sensor[] inSensors = restTemplate.getForObject(indoorSensorUrl + roomId, Indoor_Sensor[].class);
+
+            if (inSensors == null || inSensors.length == 0) {
+                return "Capteur indoor " + roomId + " n'existe pas";
+            }
+
+            inSensor = inSensors[0];
+
+        } catch (HttpClientErrorException.NotFound e) {
+            return "Capteur indoor " + roomId + " n'existe pas";
+        }
     	
-    	Outdoor_Sensor[] outSensors = restTemplate.getForObject(outdoorSensorUrl + roomId, Outdoor_Sensor[].class);
-    	Outdoor_Sensor outSensor = outSensors[0];
-    	
-    	Actuator[] actuators = restTemplate.getForObject(actuatorUrl+"Room/"+roomId, Actuator[].class);
-    	Actuator actuator = actuators[0];
-    	
-        if (inSensor == null || outSensor == null) {
-            return "Missing sensors for room " + roomId;
+    	//OUTDOOR
+        try {
+            Outdoor_Sensor[] outSensors = restTemplate.getForObject(outdoorSensorUrl + roomId, Outdoor_Sensor[].class);
+
+            if (outSensors == null || outSensors.length == 0) {
+                return "Capteur outdoor " + roomId + " n'existe pas";
+            }
+
+            outSensor = outSensors[0];
+
+        } catch (HttpClientErrorException.NotFound e) {
+            return "Capteur outdoor " + roomId + " n'existe pas";
+        }
+        
+        //ACTUATOR
+        try {
+            Actuator[] actuators =
+                    restTemplate.getForObject(actuatorUrl + "Room/" + roomId, Actuator[].class);
+
+            if (actuators == null || actuators.length == 0) {
+                return "Actuator pour la room " + roomId + " n'existe pas";
+            }
+
+            actuator = actuators[0];
+
+        } catch (HttpClientErrorException.NotFound e) {
+            return "Actuator pour la room " + roomId + " n'existe pas";
         }
         
         int indoorTemp = inSensor.getMeasurement();
@@ -65,15 +99,15 @@ public class Rules {
     
     public void sendLog(int roomId, String action, String reason) {
 
-	    History log = new History(
-	    		null,
+	    History_Maison log = new History_Maison(
+	            null,
 	            roomId,
 	            action,
 	            reason,
 	            null
-	    );
-	
-	    restTemplate.postForObject(historyUrl, log, History.class);
+	        );
+
+	        restTemplate.postForObject(historyUrl, log, Void.class);
     }
 
 }

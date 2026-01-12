@@ -11,5 +11,4 @@ public class RulesMsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RulesMsApplication.class, args);
 	}
-
 }

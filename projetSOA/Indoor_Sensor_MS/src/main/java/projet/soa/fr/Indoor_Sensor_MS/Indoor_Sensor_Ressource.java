@@ -120,5 +120,17 @@ public class Indoor_Sensor_Ressource {
                     .body("Échec de la suppression : aucun capteur trouvé avec l'id " + id);
         }
     }
-
+    
+    //GET LA ROOM LA PLUS ELEVEE
+    @GetMapping("/Room/Max")
+    public ResponseEntity<?> getMaxRoomId() {
+    	
+        return sensors.stream()
+                .map(Indoor_Sensor::getRoomId)
+                .max(Integer::compareTo)
+                .<ResponseEntity<?>>map(ResponseEntity::ok)
+                .orElse(ResponseEntity
+                        .status(HttpStatus.NOT_FOUND)
+                        .body("Aucun capteur enregistré"));
+    }
 }
